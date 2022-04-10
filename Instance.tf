@@ -5,7 +5,7 @@ resource "aws_instance" "terrainstance" {
   key_name        = "terraform-key"
   security_groups = ["${aws_security_group.terrainstance.name}"]
   tags = {
-    Name = "NginxWeb"
+    Name = "NginxWeb-${count.index}"
   }
   user_data = "${file("nginx.sh")}"
 }
